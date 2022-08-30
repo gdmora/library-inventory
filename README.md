@@ -1,6 +1,6 @@
 # CRUD Application with Symfony framework for PHP
 
-This project is a basic CRUD application that servers as an inventory app for a fictional library.
+This project is a basic CRUD application that serves as an inventory app for a fictional library.
 
 ## Main view
 
