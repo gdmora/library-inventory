@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Library Inventory{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% for message in app.flashes('notice') %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">SUMMARY</th>
+                <th scope="col">PUBLICATION YEAR</th>
+                <th scope="col">AUTHOR</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <th scope="row">{{book.id}}</th>
+                <td>{{book.title}}</td>
+                <td>{{book.summary}}</td>
+                <td>{{book.publicationyear}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path('app_update', {'id':book.id} ) }}">Edit</a>
+                    <a class="btn btn-danger" href="{{ path('app_remove', {'id':book.id}) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-primary" href="{{ path('app_create') }}">Add</a>
+    </div>
+</div>
+{% endblock %}
